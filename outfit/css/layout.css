@@ -1,8 +1,8 @@
 header{
     position: relative;
-    min-width: 80%;
+    width: 100%;
     min-height: 6em;
-    /*font-size: 1.5em;*/
+    font-size: 1.5em;
     margin: 1em auto 2em auto;
     background-color: #333;
     color: #999;
@@ -11,26 +11,27 @@ header{
 }
 header>h1{
     position: absolute;
-    top: 50%; left: 50%;
-    width: 100%;
-    transform: translate(-50%, -50%);
-    font-size: 1.5em;
+    font-size: 1.4em;
+    top:1.5em;left: 0%;right: 0;
     text-align: center;
-    font-family: 'Modern Antiqua', sans-serif;
-    line-height: 1.2;
-    /*color: #CD0027;*/
-    color: #718EBA;
+    font-family: 'Cutive Mono', sans-serif;
+    line-height: 1.4em;
+    color: hsl(200, 40%, 70%);
+    text-shadow:
+        1px 1px 0px hsl(250,60%, 68%),
+        2px 2px 0px hsl(250,30%, 38%);
+        /*3px 3px 0px hsl(245,100%, 58%);*/
 }
 header>h2{
     position: absolute;
     font-size: 1.2em;
     top:1em;left: .8em;
-    color: #718EBA;
+    color: #C56E78;
+    opacity: .5;
 }
 header>h3{
     position: absolute;
-    font-size: 1em;
-    bottom: .5em; right:.8em;
+    bottom: 1em; right:.8em;
     color: #CDCDCD;
 }
 
