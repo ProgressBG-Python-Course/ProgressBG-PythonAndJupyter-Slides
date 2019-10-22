@@ -10,10 +10,50 @@ subl_*
 
 # all hidden files, except...
 .*
-!.gitignore
-!.gitmodules
-!.vscode
+tmp/**
+**/*.tmp
+**/*.old
+**/.tags*
+**/*fuse*
+**/*.log
+logs/**
+nohup*
+subl_*
+
+# shell files
+*.sh
+
+# IDE - VSCode
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# System Files
+.DS_Store
+Thumbs.db
+
+node_modules/
+**/node_modules/
+.sass-cache
+
+*.sublime-workspace
+*.sublime-project
+
+# folders:
+.*/**
+students/**
+
+# all hidden files escept .gitignore...
+.*
+# !/.gitignore
+# !.gitmodules
+# !.vscode
 # !.bin
+
+# all starting with double underscore
+__*
 
 **/node_modules/**
 .sass-cache
