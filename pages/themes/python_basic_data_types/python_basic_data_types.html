@@ -73,63 +73,6 @@
   </section>
 </section>
 
-<!-- from VC2 -->
-
-
-
-
-<section data-min="5"><h1>Python design philosophy and syntax</h1></section>
-<section><h2>Python design philosophy and syntax</h2>
-  <section><h3>The Zen of Python</h3>
-    <pre><code rel="Terminal" class="ascii">
-      $ python -m this
-      The Zen of Python, by Tim Peters
-
-      Beautiful is better than ugly.
-      Explicit is better than implicit.
-      Simple is better than complex.
-      Complex is better than complicated.
-      Flat is better than nested.
-      Sparse is better than dense.
-      Readability counts.
-      Special cases aren't special enough to break the rules.
-      Although practicality beats purity.
-      Errors should never pass silently.
-      Unless explicitly silenced.
-      In the face of ambiguity, refuse the temptation to guess.
-      There should be one-- and preferably only one --obvious way to do it.
-      Although that way may not be obvious at first unless you're Dutch.
-      Now is better than never.
-      Although never is often better than *right* now.
-      If the implementation is hard to explain, it's a bad idea.
-      If the implementation is easy to explain, it may be a good idea.
-      Namespaces are one honking great idea -- let's do more of those!
-    </code></pre>
-  </section>
-  <section><h3>Clean syntax</h3>
-    <dl class="fa">
-      <dt>Statements are terminated by <span class="note">EOL</span>, not by semicolons</dt>
-      <dd>Though, you can use semicolons if you wish</dd>
-      <dt>Block of statements is wrapped by the <span class="note">same indentation</span>, not by curly braces</dt>
-      <dd>You can use <span class="note">spaces or tabs</span> for indent.</dd>
-      <dd>Mixing spaces with tabs can lead to errors or bugs.</dd>
-    </dl>
-  </section>
-  <section><h3>Do not mix space and tabs</h3>
-    <a href="images/mixed_indent_c.png"><img src="images/mixed_indent_c.png"></a>
-    <p>That code will lead to</p>
-    <p><span class="note">TabError: inconsistent use of tabs and spaces in indentation</span></p>
-  </section>
-  <section><h3>Same indent!</h3>
-    <a href="images/IndentationError.png"><img src="images/IndentationError.png"></a>
-    <p>That code will lead to</p>
-    <p><span class="note">IndentationError: unexpected indent</span></p>
-  </section>
-  <section><h3>Wrong indentation can cause bugs!</h3>
-    <a href="images/indentation_bug.png"><img src="images/indentation_bug.png"></a>
-    <p>Can you spot the bug?</p>
-  </section>
-</section>
 
 
 <section data-min="5"><h1>Data Types Introduction</h1></section>

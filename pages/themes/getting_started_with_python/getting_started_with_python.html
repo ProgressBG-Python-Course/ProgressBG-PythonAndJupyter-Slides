@@ -162,14 +162,13 @@
       <dt>In Python the block is not separated by braces, as in other programming languages, but by <span class="note">same indentation</span> of the instructions in it.</dt>
     </dl>
   </section>
-
 </section>
 
 
 
 <section data-min="5"><h1>Python design philosophy and syntax</h1></section>
 <section><h2>Python design philosophy and syntax</h2>
-  <section><h3>The Zen of Python</h3>
+  <section><h3>The Zen of Python</h3>    
     <pre><code rel="Terminal" class="ascii">
       $ python -m this
       The Zen of Python, by Tim Peters
@@ -194,10 +193,12 @@
       If the implementation is easy to explain, it may be a good idea.
       Namespaces are one honking great idea -- let's do more of those!
     </code></pre>
+
+    <p>Or just read it here: <a href="https://www.python.org/dev/peps/pep-0020/#the-zen-of-python">The Zen of Python</a></p>
   </section>
   <section><h3>Clean syntax</h3>
     <dl class="fa">
-      <dt>Statements are terminated by <span class="note">EOL</span>, not by semicolons</dt>
+      <dt>Statements are terminated by <span class="note">EOL</span>, not by semicolons!</dt>
       <dd>Though, you can use semicolons if you wish</dd>
       <dt>Block of statements is wrapped by the <span class="note">same indentation</span>, not by curly braces</dt>
       <dd>You can use <span class="note">spaces or tabs</span> for indent.</dd>
@@ -226,20 +227,99 @@
     <dl class="fa">
       <dt>Variable points to the place in memory, where your values/data is stored</dt>
     </dl>
-    <a href="images/variables_in_RAM.png"><img src="images/variables_in_RAM.png" alt="variables_in_RAM"></a>
+    <a href="images/variables_in_RAM.png"><img src="images/variables_in_RAM.png" alt="variables_in_RAM" style="height: 10em"></a>
+  </section>
+  <section><h3>Variables/Identifiers naming rules</h3>
+    <p>Identifiers is a common term, which denotes variables, functions, objects, classes and other names used in a programming language.</p>
+    <p>Valid identifier in Python is a combination of one or more allowed symbols:</p>
+    <dl class="fa">
+      <dt>lower-case letters (<span class="note">a to z</span>)</dt>
+      <dt>upper-case letters (<span class="note">A to Z</span>)</dt>
+      <dt>digits (<span class="note">0 to 9</span>)</dt>
+      <dt>underscore (<span class="note">_</span>)</dt>    
+      <dt class="note">Identifiers can not start with number!</dt>   
+    </dl>
   </section>
   <section><h3>Naming conventions</h3>
+    <p>Each programming language have some naming conventions in order to make programs more readable</p>
     <dl class="fa">
       <dt>In python we use the lowercase <code>snake_case</code> convention.</dt>
     </dl>
     <pre><code rel="Python" class="python3">
-      user_name = 'Ada' 
-
-      max_minutes_per_hour = 40
+      user name = 'Ada' # wrong - spaces are not allowed
+      user_name = 'Ada' # valid and follows the Python convention
+      userName = 'Ada'  # valid, but breaks the Python (snake_case) convention
+      1user = 'Ada'     # wrong - identifier can not start with number
     </code></pre>
   </section>
 </section>
 
+
+<section data-min="20"><h1>Write your first Python program in Jupyter.</h1></section>
+<section><h2>Write your first Python program in Jupyter.</h2>
+  <section><h3>Folder structure</h3>
+    <dl class="fa">
+      <dt>Create a folder named <code>Notebooks</code> into your main course folder</dt>
+    </dl>
+    <pre><code rel="Folders structure" class="bash">
+      PJ_Course
+      ├── lab1
+      │   ├── ...   
+      ├── Notebooks      
+    </code></pre>
+  </section>
+  <section><h3>Prepare the virtual environment</h3>
+    <dl class="fa">
+      <dt>Remove any virtual environments you have created in past lab:</dt>
+    </dl>
+    <pre><code rel="Terminal" class="bash">
+      # go to lab1 folder:
+      cd some/path/PJ_Course/lab1
+
+      # remove virtual env:
+      pipenv --rm
+
+      # remove Pipfile && Pipfile.lock
+      rm Pipfile Pipfile.lock
+    </code></pre>
+  </section>
+  <section><h3>Prepare the virtual environment</h3>
+    <dl class="fa">
+      <dt>During the course, we'll use one virtual environment for all labs examples</dt>
+      <dt>It will be created in PJ_Course/ main folder</dt>
+    </dl>
+    <pre><code rel="Terminal" class="bash">
+      # go to PJ_Course folder (if you are in lab1/):
+      cd ../
+
+      # or if you are in new terminal, do:
+      cd some/path/PJ_Course/ 
+
+      # create a virtual environment with Python3:
+      pipenv --three
+
+      # install the modules:
+      pipenv install pandas matplotlib jupyterlab     
+    </code></pre>
+  </section>
+  <section><h3>Start the Jupyter Notebook Server</h3>
+    <pre><code rel="Terminal" class="bash">
+      # activate the virtual environment:
+      pipenv shell
+
+      # start the server
+      jupyter notebook
+    </code></pre>
+    <p class="note">If you close that Terminal - you'll stop the Jupyter Notebook server, so make sure you leave it alone.</p>
+  </section>
+  <section><h3></h3>
+    <dl class="fa">
+      <dt>Live Demo</dt>
+      <dd>The code will be uploaded in: <a href="https://github.com/ProgressBG-Python-Course/ProgressBG-PythonAndJupyter-Labs">ProgressBG-PythonAndJupyter-Labs</a> GitHub repo</dd>
+    </dl>
+
+  </section>
+</section>
 
 <!-- <section id="hw" data-min="4"><h1>Exercises</h1></section>
 <section><h2>Task1: Task1Title</h2>
