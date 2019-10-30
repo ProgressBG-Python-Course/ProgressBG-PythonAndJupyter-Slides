@@ -323,6 +323,80 @@
   </section>
 </section>
 
+<section data-min="5"><h1>Comments</h1></section>
+<section><h2>Comments</h2>
+  <section><h3>Why to comment our code?</h3>
+    <dl class="fa">
+      <dt>Python interpreter ignores every part of a program, which is marked as a "comment"</dt>
+      <dt>Comments are used to explain and/or summarize a part of our program in a more readable manner</dt>
+      <dt>For debugging purposes - when we need fast to ignore a block of code</dt>
+      <dt>For other meta information about the program (programme name, author, date, etc.)</dt>
+      <dt>A well commented program is more readable and maintainable</dt>
+    </dl>
+  </section>
+  <section><h3>How to comment our code?</h3>
+    <dl class="fa">
+      <dt>Single line comment: <code class="note">#</code></dt>
+      <dd>every line which starts with <code class="note">#</code>(hash tag) is a comment and is ignored py Python interpreter</dd>
+      <pre><code rel="Python" class="python3">
+        # this is a just a comment: no print("whatever") will happens
+        print("this will be printed, of course")
+
+        ### a more semantic example for comment:
+        # check if a triangle with sides (3,4,5) is a Pythagorean:
+        print(3**2 + 4**2 == 5**2)
+      </code></pre>
+    </dl>
+  </section>
+  <section><h3>Reference</h3>
+    <a href="https://www.python.org/dev/peps/pep-0008/#comments">PEP8 - Comments</a>
+  </section>
+</section>
+
+<section><h1>Exercises</h1>
+  <section id="hw_bmi"><h2><b>Body Mass Index calculator</b></h2>
+    <section><h3>The problem</h3>
+      <dl class="fa">
+        <dt>Calculate your body mass index (BMI) with Python, given the formula:<br>
+        <code class="note">BMI = W / (H*H)</code><br>
+        where:
+        </dt>
+        <dd>W = weight_in_kilogram</dd>
+        <dd>H = height_in_meters</dd>
+        <dt>Your program should outputs the rounded result (to 2 digits from the decimal point). You can use the python's build-in <a href="https://www.tutorialspoint.com/python/number_round.htm">round()</a> function, like:</dt>
+        <pre><code rel="Python" class="python3">
+          >>> round(2.1457, 2)
+          2.15
+
+          >>> round(1.4234,2)
+          1.42
+
+          >>> round(1.4284,2)
+          1.43
+        </code></pre>
+      </dl>
+    </section>
+    <section><h3>solution</h3>
+      <pre><code rel="Python" class="python3">
+        """
+        Solution without using variables to store values,
+
+        and given that W = 53, H = 1.67:
+        """
+        print(round(53/(1.67*1.67), 2))
+
+        # 19.0
+
+      </code></pre>
+    </section>
+    <section><h3>HW: BMI.py</h3>
+      <dl class="fa">
+        <dt>Try to think of a solution, which will be readable enough and easy to maintain in future (you can use comments and semantic variable names)</dt>        
+      </dl>
+    </section>
+  </section>
+</section>
+
 <section data-min="5"><h1>Variables/Value Names</h1></section>
 <section><h2>Variables in Python</h2>
   <section><h3>What is a variable in Python?</h3>
@@ -354,16 +428,23 @@
     <p>Note that variable names <span class="note">are case-sensitive</span></p>
     <p>Reference: <a href="https://docs.python.org/3/reference/lexical_analysis.html#identifiers">Identifiers and keywords</a> @python docs</p>
   </section>
+  <section><h3>Examples</h3>
+    <pre><code rel="Python" class="python">
+      user_name = 'Ada'   # valid
+      user name = 'John'  # invalid - spaces not allowed
+      1user_number = 23   # invalid - name can not start with number
+      user_number1 = 23   # valid
+      _____ = 'what?'     # valid, but not a good choice for name 
+    </code></pre>
+  </section>
   <section><h3>Naming conventions</h3>
     <p>Each programming language have some naming conventions in order to make programs more readable</p>
     <dl class="fa">
       <dt>In python we use the lowercase <code>snake_case</code> convention.</dt>
     </dl>
     <pre><code rel="Python" class="python3">
-      user name = 'Ada' # wrong - spaces are not allowed
       user_name = 'Ada' # valid and follows the Python convention
       userName = 'Ada'  # valid, but breaks the Python (snake_case) convention
-      1user = 'Ada'     # wrong - identifier can not start with number
     </code></pre>
   </section>
   <section><h3>Naming Conventions</h3>
@@ -384,38 +465,52 @@
 
       print("first_name = ", First_name) #NameError: name 'First_name' is not defined
 
-      sur-name = "byron" #SyntaxError: can't assign to operator
 
     </code></pre>
   </section>
   <section><h3>Name binding</h3>
     <dl class="fa">
       <dt>Name binding is the association between a name and an a value</dt>
-      <dd>Note, that all values in Python are represented as objects</dd>
       <dt>We can bind a value to a name with the <code>assignment</code> operator (<code>=</code>)</dt>
-      <dt>We can check the unique identity of an object by the <code>id()</code> built-in function.</dt>
-      <dd>CPython uses the object's memory address for the unique id</dd>
       <pre><code rel="Python" class="python">
-        >>> a = 2
-        >>> id(a)
-        9413216
+        # assign the value 2 to the variable named 'x':
+        >>> x = 2         
+
+        # assign the value 4 to the variable named 'y':
+        >>> y = 2
+
+        # use the values assigned to the 'x' and 'y' variables:
+        print(x + y)
       </code></pre>
     </dl>
-  </section>
-  <section><h3>Name binding</h3>
-    <a href="images/variables_bounding.png"><img src="images/variables_bounding.png"></a>
-  </section>
-  <section><h3>Name binding</h3>
-    <pre><code rel="JS" class="js">
-      >>> a = 1
-      >>> b = 1
-      >>> id(a)
-      9413184
-      >>> id(b)
-      9413184
-    </code></pre>
-  </section>
-  <section><h3>Name Binding</h3>
+    <p class="advanced">Note, that all values in Python are represented as objects</p>            
+  </section> 
+  <section><h3>Name binding - aliasing</h3>
+    <dl class="fa">
+      <dt>When the right-hand side of the assignment is an existing variable, Python did not create a new object, but gives that object another name, an alias.</dt>
+      <pre><code rel="Python" class="python">
+        >>> a = 1_000_000
+        >>> b = a
+        >>> id(a)
+        140418111916176
+        >>> id(b)
+        140418111916176
+      </code></pre>
+      <dt>But numbers are <span class="note">immutable</span>, i.e. we can not change their values</dt>
+      <pre><code rel="Python" class="python">
+        # in next line, Python do not change the value 1_000_000, but creates a new object '2_000_000' in memory, and binds 'a' to that object:
+        >>> a = 2_000_000 
+        >>> print(a) 
+        2_000_000
+
+        # but 'b' is still bound to the object '1_000_000'
+        >>> print(b)
+        1_000_000
+
+      </code></pre>
+    </dl>
+  </section> 
+  <section><h3 class="advanced">Name Binding</h3>
     <dl class="fa">
       <dt>Python reuses the immutable objects instead of creating copies</dt>
       <dd>That's true only for small immutable objects (implementation dependant, so don't rely on that)</dd>
@@ -439,6 +534,10 @@
       </code></pre>
     </dl>
   </section>
+  <section><h3 class="advanced">Name binding</h3>
+    <p>Depicting how Python reuses objects in memory</p>
+    <a href="images/variables_bounding.png"><img src="images/variables_bounding.png"></a>
+  </section> 
   <section><h3>Name binding</h3>
     <pre><code rel="Python" class="python">
       >>> a = 5
@@ -453,20 +552,7 @@
     </code></pre>
     <dl class="fa">
       <dt>Note, that in memory there is exactly one object (id: 9413312, value:5) after execution of the above code.</dt>
-    </dl>
-  </section>
-  <section><h3>Name binding - aliasing</h3>
-    <dl class="fa">
-      <dt>When the right-hand side of the assignment is an existing variable, Python did not create a new object, but gives that object another name, an alias.</dt>
-      <pre><code rel="Python" class="python">
-        >>> a = 1_000_000
-        >>> b = a
-        >>> id(a)
-        140418111916176
-        >>> id(b)
-        140418111916176
-
-      </code></pre>
+      <dt>But also remember, that numbers in Python are <span class="note">immutable</span></dt>
     </dl>
   </section>
   <section><h3 class="advanced">Garbage collection</h3>
@@ -485,37 +571,7 @@
   </section>
 </section>
 
-<section data-min="5"><h1>Comments</h1></section>
-<section><h2>Comments</h2>
-  <section><h3>Why to comment our code?</h3>
-    <dl class="fa">
-      <dt>Python interpreter ignores every part of a program, which is marked as a "comment"</dt>
-      <dt>Comments are used to explain and/or summarize a part of our program in a more readable manner</dt>
-      <dt>For debugging purposes - when we need fast to ignore a block of code</dt>
-      <dt>For other meta information about the program (programme name, author, date, etc.)</dt>
-      <dt>A well commented program is more readable and maintainable</dt>
-    </dl>
-  </section>
-  <section><h3>How to comment our code?</h3>
-    <dl class="fa">
-      <dt>Single line comment: <code class="note">#</code></dt>
-      <dd>every line which starts with <code class="note">#</code>(hash tag) is a comment and is ignored py Python interpreter</dd>
-      <pre><code rel="Python" class="python3">
-        # this is a just a comment: no print("whatever") will happens
-        print("this will be printed, of course")
-
-        ### a more semantic example for comment:
-        # check if a triangle with sides (3,4,5) is a Pythagorean:
-        print(3**2 + 4**2 == 5**2)
-      </code></pre>
-    </dl>
-  </section>
-  <section><h3>Reference</h3>
-    <a href="https://www.python.org/dev/peps/pep-0008/#comments">PEP8 - Comments</a>
-  </section>
-</section>
-
-<section data-min="5"><h1><li>Logical Expressions and Conditional Statements.</li></h1></section>
+<section data-min="5"><h1>Logical Expressions and Conditional Statements.</h1></section>
 <section><h2>Boolean type</h2>
   <section><h3>What?</h3>
     <dl class="fa">
@@ -621,16 +677,7 @@
       ...
       TypeError: '<' not supported between instances of 'int' and 'str
     </code></pre>
-  </section>
-  <section><h3 class="advanced">Notes on comparison - Python 2</h3>
-    <dl class="fa" style="font-size: .8em">
-      <dt><a href="https://docs.python.org/2.7/reference/expressions.html#value-comparisons">docs.python.org/2/ - Value comparisons</a>:</dt>
-      <dd><q>"The operators <, >, ==, >=, <=, and != compare the values of two objects. The objects do not need to have the same type."</q></dd>
-      <dd><q>"The value of an object is a rather abstract notion in Python"</q></dd>
-      <dd><q>"The default behavior for equality comparison (== and !=) is based on the identity of the objects"</q></dd>
-      <dd><q>"The default order comparison (<, >, <=, and >=) gives a consistent but arbitrary order."</q></dd>
-    </dl>
-  </section>       
+  </section>      
   <section><h3>the operators</h3>
     <table border="1">
       <colgroup>
@@ -687,7 +734,7 @@
   </section>
   <section><h3>lexicographical comparison</h3>
       <dl class="fa">
-        <dt>Symbols are compared by their position (codepoint) according to the character code table used.</dt>
+        <dt>Symbols are compared by their position (code point) according to the character code table used.</dt>
         <dt>First the first two items are compared, and if they differ this determines the outcome of the comparison.If they are equal, the next two items are compared, and so on, until either sequence is exhausted.</dt>
       </dl>
   </section>
@@ -826,30 +873,8 @@
   </section>
 </section>
 
-<section><h1>Exercises</h1></section>
-<section id="hw">
-  <section><h3>Task1: odd_or_even.py</h3>
-    <dl class="fa">
-      <dt>Write a program, which will print out for any integer number if it is odd or even.</dt>
-    </dl>
-  </section>
-  <section><h3>Task2: BMI_by_categories.py</h3>
-    <dl class="fa">
-      <dt>Refine the BMI program form the (<a href="https://progressbg-python-course.github.io/ProgressBG-VMware-Python-Slides/pages/themes/stringsNumbersVariablesComments/stringsNumbersVariablesComments.html#/hw_bmi">last lab</a>)</dt>
-      <dt>Ask the user to enter his/her weight_in_kilogram and height_in_meters</dt>
-      <dt>Now, the output of your program should be the BMI category, corresponding to the BMI index (given in next slide)</dt>
-    </dl>
-  </section>
-   <section><h3>BMI Categories</h3>
-    <table>
-      <tr><th>BMI</th><th>Category</th></tr>
-      <tr><td>&lt;= 18.5</td><td>Underweight</td></tr>
-      <tr><td>18.5–24.9</td><td>Normal</td></tr>
-      <tr><td>25–29.9</td><td>Overweight</td></tr>
-      <tr><td>&gt;= 30</td><td>Obesity</td></tr>
-    </table>
-  </section>
-  <section id="hw_guess_the_number" style="font-size: 0.8em"><h3>Task3: guess_the_number.py</h3>
+<!-- <section><h1>Exercises</h1>
+  <section id="hw_guess_the_number" style="font-size: 0.8em"><h3>Task: guess_the_number.py</h3>
     <dl class="fa">
       <dt>Write a simple Python program, implementing the "Guess the number" game, following the rules:</dt>
       <dd>The program will "think" of a number using the <code>random module</code>, as shown in code shown in next slide.</dd>
@@ -872,8 +897,7 @@
     </code></pre>
   </section>
 </section>
-
-
+ -->
 <section data-min="5"><h1>Loops in Python</h1></section>
 <section><h2>What are <span class="note">loops (cycles)</span></h2>
   <section>
@@ -918,6 +942,7 @@
   </section>
   <section><h3>Example: endless loop (find the problem)</h3>
     <p class="note">If you run next code, your Python will run an endless loop. Use <kbd>CTRL+C</kbd> or <kbd>CTRL+Z</kbd> to stop it</p>
+    <p>If you're running a Jupyter server - you'll have to stop the server.</p>
     <pre><code rel="JS" class="js">
       # print the numbers from 10 to 1:
       i = 10
@@ -1014,13 +1039,13 @@
         print("\n") #prints new line
     </code></pre>
     <dl class="fa">
-      <dt class="note">More examples and real-world usage of the <code>for</code> statement will be shown in <a href="/ProgressBG-VMware-Python-Slides/pages/themes/beginners/sequenceDataTypes/sequenceDataTypes.html">Sequence data types</a> theme!</dt>
+      <dt class="note">More examples and real-world usage of the <code>for</code> statement will be shown in Sequence data types theme!</dt>
     </dl>
   </section>
 </section>
 
-<section><h1><code>break</code> statement</h1></section>
-<section><h2><code>break</code> statement</h2>
+<section><h1 class="advanced"><code>break</code> statement</h1></section>
+<section><h2 class="advanced"><code>break</code> statement</h2>
   <section><h3>Syntax in while loop</h3>
     <pre><code rel="Syntax" class="python" data-noescape>
       while <i>condition</i><b>:</b>
@@ -1146,8 +1171,8 @@
   </section>
 </section>
 
-<section><h1><code>continue</code> statement</h1></section>
-<section><h2><code>continue</code> statement</h2>
+<section><h1 class="advanced"><code>continue</code> statement</h1></section>
+<section><h2 class="advanced"><code>continue</code> statement</h2>
   <section>
     <dl class="fa">
       <dt>Returns the control to the beginning of the loop.</dt>
@@ -1197,11 +1222,11 @@
   </section>
 </section>
 
-<section><h1>Exercises</h1></section>
+<!-- <section><h1>Exercises</h1></section>
 <section><h2>HW</h2>
   <section><h3>"Guess the number" - full version</h3>
     <dl class="fa">
-      <dt>Write the full version of the "Guess the number" game, implementing the same rules as given in <a href="http://127.0.0.1:1111/ProgressBG-VMware-Python-Slides/pages/themes/beginners/logicalExpressionsAndConditionalStatements/logicalExpressionsAndConditionalStatements.html#/hw_guess_the_number">Guess the number game - the beginning</a>, but giving the user the chance to try more than once.</dt>
+      <dt>Write the full version of the "Guess the number" game, implementing the same rules as given in <a href="#hw_guess_the_number">Guess the number game - the beginning</a>, but giving the user the chance to try more than once.</dt>
       <dt>The user now will have 5 tries to guess.</dt>
       <dt>If he/she could not manage to guess the number for 5 tries, the game stops, with a message:<br>"You lost! My number was X"</dt>
       <dd>where X is the machine number</dd>
@@ -1215,9 +1240,7 @@
       <dd><a href="Task_and_HW/guess_the_number_for_loop.py">guess_the_number_for_loop.py</a></dd>
     </dl>
   </section>
-</section>
-
-<section><h1>Sequence Data Types <br>(Basic data structures)</h1></section>
+</section> -->
 
 <section><h1>Sequence Data Types - Overview</h1></section>
 <section><h2>Sequence Data Types - Overview</h2>
@@ -1340,7 +1363,7 @@
 </section>
 
 <section><h1 class="advanced">Tuples</h1></section>
-<section><h2>Tuples</h2>
+<section><h2 class="advanced">Tuples</h2>
   <section><h3>What is a Tuple?</h3>
     <dl class="fa">
       <dt>A tuple is <span class="note">immutable</span> (i.e. not changeble) sequence of data.</dt>
@@ -1413,7 +1436,6 @@
     </code></pre>
   </section>
 </section>
-
 
 <section><h1>Range Object</h1></section>
 <section><h2>Range Object</h2>
