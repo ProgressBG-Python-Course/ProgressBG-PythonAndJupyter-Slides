@@ -164,15 +164,15 @@
     <pre><code rel="Syntax" class="shell">
       "string_with_placeholders".format(values_to_be_substituted)
     </code></pre>
-    <pre><code rel="Python" class="python">
-      >>> "{} died in {} year".format("Ada Byron", 1852)
-      'Ada Byron died in 1852 year'
-    </code></pre>
     <dl class="fa">
       <dt><span class="note">string_with_placeholders</span> is a string containing placeholders of the form <code>{}</code></dt>
       <dt><span class="note">values_to_be_substituted</span> - a comma separated list of values, which will be replaced in the respective placeholders</dt>
       <dt>Reference: <a href="https://docs.python.org/3/library/string.html#format-string-syntax">Format String Syntax</a> @python docs</dt>
     </dl>
+    <pre><code rel="Example" class="python">
+      >>> "{} died in {} year".format("Ada Byron", 1852)
+      'Ada Byron died in 1852 year'
+    </code></pre>    
   </section>
   <section><h3><code>str.format()</code> - placeholders</h3>
     <dl class="fa">
@@ -386,7 +386,7 @@
           [7,8,9],
         ]
 
-        # trying to slice the second column ([1,5,8]):
+        # trying to slice the second column ([2,5,8]):
         print(m[:,1])
         # TypeError: list indices must be integers or slices, not tuple
       </code></pre>
@@ -456,6 +456,7 @@
     <pre><code rel="Python" class="python">
       user_name = "ivan"
 
+      # i will take values from 0, till 4 - which are the indexes
       for i in range(len(user_name)):
         print("{} - {}".format(i, user_name[i]))
     </code></pre>
@@ -485,6 +486,55 @@
 
 <section data-min="5"><h1>Built-in String methods.</h1></section>
 <section><h2>Built-in String methods.</h2>
+  <section><h3>str.capitalize()</h3>
+    <dl class="fa">
+      <dt><code>str.capitalize()</code> - Return a copy of the string with its first character capitalized and the rest lowercased.</dt>
+    </dl>
+  </section>
+  <section><h3>str.count()</h3>
+    <dl class="fa">
+      <dt><code>str.count(sub[, start[, end]])</code> - Return the number of non-overlapping occurrences of substring sub in the range [start, end]. Optional arguments start and end are interpreted as in slice notation.</dt>
+    </dl>
+  </section>
+  <section><h3>str.find()</h3>
+    <dl class="fa">
+      <dt><code>str.find(sub[, start[, end]])</code> - Return the lowest index in the string where substring sub is found within the slice s[start:end]. Optional arguments start and end are interpreted as in slice notation. Return -1 if sub is not found.</dt>
+      <dt><span class="note">The find() method should be used only if you need to know the position of sub. To check if sub is a substring or not, use the <code>in</code> operator:</span></dt>
+    </dl>
+  </section>
+  <section><h3>str.join()</h3>
+    <dl class="fa">
+      <dt><code>str.join(iterable)</code> - Return a string which is the concatenation of the strings in iterable. A TypeError will be raised if there are any non-string values in iterable, including bytes objects. The separator between elements is the string providing this method.</dt>
+    </dl>
+  </section>
+  <section><h3>str.split()</h3>
+    <dl class="fa">
+      <dt><code>str.split(sep=None, maxsplit=-1)</code> - Return a list of the words in the string, using sep as the delimiter string. If maxsplit is given, at most maxsplit splits are done. If maxsplit is not specified or -1, then all possible splits are made. <br>
+      The sep argument may consist of multiple characters (for example, '1<>2<>3'.split('<>') returns ['1', '2', '3']).</dt>
+      <dt>note that to split a string on each character, you can use the <code>list(str)</code> function.</dt>
+    </dl>
+  </section>
+  <section><h3>str.splitlines()</h3>
+    <dl class="fa">
+      <dt><code>str.splitlines([keepends])</code> - Return a list of the lines in the string, breaking at line boundaries. Line breaks are not included in the resulting list unless keepends is given and true.</dt>
+    </dl>
+  </section>
+  <section><h3>str.lower()</h3>
+    <dl class="fa">
+      <dt><code>str.lower()</code> - Return a copy of the string with all the cased characters 4 converted to lowercase.</dt>
+    </dl>
+  </section>
+  <section><h3>str.replace()</h3>
+    <dl class="fa">
+      <dt><code>str.replace(old, new[, count])</code> - Return a copy of the string with all occurrences of substring old replaced by new. If the optional argument count is given, only the first count occurrences are replaced.</dt>
+    </dl>
+  </section>
+  <section><h3>str.title()</h3>
+    <dl class="fa">
+      <dt><code>str.title()</code> - Return a titlecased version of the string where words start with an uppercase character and the remaining characters are lowercase.</dt>
+    </dl>
+  </section>
+  
   <section><h3>Live Demo</h3>
     <p>Reference: <a href="https://docs.python.org/3/library/stdtypes.html#string-methods">string-methods</a> @python-docs</p>
   </section>
