@@ -106,26 +106,65 @@
 </section>
 
 <section><h2>open file</h2>
-  <dl class="fa">
-    <dt><code>fh = open(file_path, mode="<em>mode</em>")</code></dt>
-    <dt>Open file by the given pathname and return a corresponding file object</dt>
-    <dt><em>mode</em></dt>
-    <dd>'r' - open for reading (default)</dd>
-    <dd>'w' - open for writing, truncating the file first</dd>
-    <dd>'a' - open for writing, appending to the end of the file if it exists</dd>
-    <dt class="note">After the work with the file is done, you have to call fh.close() in order to release the fh</dt>
-  </dl>
+  <section><h3>Syntax</h3>
+    <dl class="fa">
+      <dt><code>fh = open(file_path, mode="<em>mode</em>")</code></dt>
+      <dt>Open file by the given pathname and return a corresponding file object</dt>
+      <dt><em>mode</em></dt>
+      <dd>'r' - open for reading (default)</dd>
+      <dd>'w' - open for writing, truncating the file first</dd>
+      <dd>'a' - open for writing, appending to the end of the file if it exists</dd>
+      <dt class="note">After the work with the file is done, you have to call fh.close() in order to release the fh</dt>
+    </dl>
+  </section>
+  <section><h3>Example</h3>
+    <pre><code rel="Terminal" class="Python">
+      # if we have in current working directory the file 'file1.txt':
+      fh = open('file1.txt', mode='r')
+      print(fh)
+      # <_io.TextIOWrapper name='file1.txt' mode='r' encoding='UTF-8'>      
+    </code></pre>
+    <dl class="fa">
+      <dt>Yes, the File Object itself is not quite useful, but its methods are.</dt>
+    </dl>
+  </section>
 </section>
 
-<section><h2>Read from file</h2>
-  <dl class="fa">
-    <dt><code>fh.read()</code></dt>
-    <dd>Reads file content and stores it in variable </dd>
-    <dt>fh.readlines()</dt>
-  </dl>
-  <pre><code rel="Python" class="python">
-    contents =f.read()
-  </code></pre>
+<section><h2>Read the whole file</h2>
+  <section><h3>fh.read() - syntax</h3>
+    <dl class="fa">
+      <dt><code>fh.read()</code></dt>
+      <dd>Reads the whole file content</dd>      
+    </dl>
+    <pre><code rel="Syntax" class="python">
+      contents =f.read()
+    </code></pre>
+  </section>
+  <section><h3>fh.read() - example</h3>
+    <pre><code rel="Python" class="python">
+      >>> content = fh.read()
+      >>> print(content)
+
+      this is a file 1
+      just a demo text file
+    </code></pre>
+  </section>
+  <section><h3>Get list of lines</h3>
+    <pre><code rel="Python" class="python">
+      fh = open('file1.txt', mode='r')
+      lines = list(fh)
+      print(lines)
+      fh.close()
+    </code></pre>
+  </section>
+  <section><h3>Loop over lines</h3>
+    <pre><code rel="Python" class="python">
+      fh = open('file1.txt', mode='r')
+      for line in fh:
+          print(line)
+      fh.close()
+    </code></pre>
+  </section>
 </section>
 
 <section><h2>Write to a file</h2>
@@ -137,12 +176,12 @@
   </dl>
 </section>
 
-<section><h2>Remove a file </h2>
+<!-- <section><h2 class="advanced">Remove a file </h2>
   <dl class="fa">
     <dt><code>os.remove(file_path)</code></dt>
     <dd>Removes a file with the given file_path </dd>
   </dl>
-</section>
+</section> -->
 
 <section><h2>the <code>with</code> statement</h2>
   <pre><code rel="Syntax" class="shell" data-noescape>
@@ -166,8 +205,10 @@
 
 <section><h2>Resources</h2>
   <dl class="fa">
+    <dt><a href="https://github.com/ProgressBG-Python-Course/JupyterNotebooksExamples/blob/master/Notebooks/Python_basics/File_manipulations/file_manipulations.ipynb">file_manipulations.ipynb</a> - the notebook containing all of the above examples.</dt>
     <dt><a href="https://docs.python.org/3/tutorial/inputoutput.html#reading-and-writing-files">Reading and Writing Files</a></dt>
-    <dt><a href="https://www.tutorialspoint.com/python/file_methods.htm">Python File Methods</a></dt>
+    <dt><a href="https://docs.python.org/3/tutorial/inputoutput.html#methods-of-file-objects">Methods of File Object</a></dt>
+    <!-- <dt><a href="https://www.tutorialspoint.com/python/file_methods.htm">Python File Methods</a></dt> -->
   </dl>
 </section>
 
